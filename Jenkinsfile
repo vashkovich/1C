@@ -33,9 +33,6 @@ pipeline {
         string(defaultValue: "${env.storagePwd}", description: 'Необязательный. Пароль администратора хранилищ 1c', name: 'storagePwd')
     }
 
-    agent {
-        label "${(env.jenkinsAgent == null || env.jenkinsAgent == 'null') ? "master" : env.jenkinsAgent}"
-    }
     options {
         timeout(time: 8, unit: 'HOURS') 
         buildDiscarder(logRotator(numToKeepStr:'10'))
