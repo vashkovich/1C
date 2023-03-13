@@ -37,4 +37,22 @@ pipeline {
         timeout(time: 8, unit: 'HOURS') 
         buildDiscarder(logRotator(numToKeepStr:'10'))
     }
+    
+    stages {
+        stage('Сборка') {
+            steps {
+                echo 'Выполняем команды для сборки'
+            }
+        }
+        stage('Тестирование') {
+            steps {
+                echo 'Тестируем нашу сборку'
+            }
+        }
+        stage('Развертывание') {
+            steps {
+                echo 'Переносим код в рабочую среду или создаем артефакт'
+            }
+        }
+    }
 }
